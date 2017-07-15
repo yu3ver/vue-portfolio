@@ -13,6 +13,8 @@ export default new Router({
         { path: '/about', name: 'About', component: About },
         { path: '/portfolio', name: 'Portfolio', component: Portfolio },
 
-        { path: '/portfolio/:item', name: 'PortfolioItem', component: PortfolioItem }
+        { path: '/portfolio/:item', name: 'PortfolioItem', component: PortfolioItem },
+
+        { path: '*', redirect: '/' }
     ]
 })

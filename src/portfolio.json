@@ -1,12 +1,14 @@
 {
-    "vdwel": {
+    "vanderwerfenlankhorst": {
         "name": "van der werf en lankhorst",
+        "slug": "vanderwerfenlankhorst",
         "description": "new website",
         "contribution": "design / development",
         "link": "https://vanderwerfenlankhorst.nl/"
     },
     "moveme": {
         "name": "MOVEME",
+        "slug": "moveme",
         "description": "travel guide application",
         "contribution": "design / development",
         "link": "https://moveme.casloeffen.nl"
