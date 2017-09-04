@@ -1,28 +1,77 @@
 <template>
-    <div class="row">
-        <div v-for="(item, index) in portfolio" class="six columns">
-            {{ item.name }}<br>
-            {{ item.description }}<br>
-
-            <router-link :to="{ path: `/portfolio/${item.slug}`, params: { id: index } }">Link</router-link>
-
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div v-for="(item, index) in portfolio" class="small-12 medium-6 cell">
+                <router-link :to="{ path: `/portfolio/${item.slug}`, params: { id: index } }">
+                    <div class="item">
+                        <img :src="item.image" />
+                        <div class="item-text" v-bind:style="{ backgroundColor: item.color }">
+                            <div class="grid-x">
+                                <div class="cell small-12 medium-6">
+                                    <p class="contribution">{{ item.contribution }}</p>
+                                </div>
+                                <div class="cell small-12 medium-6">
+                                    <p class="contribution">{{ item.techniques }}</p>
+                                </div>
+                            </div>
+                            <h2>{{ item.title }}</h2>
+                        </div>
+                    </div>
+                </router-link>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-
-import Portfolio from '../portfolio.json'
-
 export default {
     name: 'Portfolio',
     data () {
         return {
-            portfolio: Portfolio
+            story: {
+                content: {
+                    body: []
+                }
+            },
+            title: '',
+            description: '',
+            portfolio: []
+        }
+    },
+    created () {
+        window.storyblok.init({
+            accessToken: 'm1KihoDPUQ5Q0clW19Xo5Qtt'
+        })
+        window.storyblok.on('change', () => {
+            this.getStory('draft')
+        })
+        window.storyblok.pingEditor(() => {
+            if (window.storyblok.isInEditor()) {
+                this.getStory('draft')
+            } else {
+                this.getStory('published')
+            }
+        })
+    },
+    methods: {
+        getStory (version) {
+            window.storyblok.get({
+                slug: 'portfolio',
+                version: version
+            }, (data) => {
+                this.story = {
+                    content: {
+                        body: []
+                    }
+                }
+                this.$nextTick(() => {
+                    this.story = data.story
+                    this.title = data.story.content.body[0].title
+                    this.description = data.story.content.body[0].description
+                    this.portfolio = data.story.content.body
+                })
+            })
         }
     }
 }
 </script>
-
-<style>
-</style>

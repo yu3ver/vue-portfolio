@@ -1,46 +1,53 @@
 <template>
     <div class="grid-container">
         <div class="grid-x">
-            <div class="cell small-12 item" v-if="item">
-                <img :src="item.image" alt="">
-                <div class="item-text" v-bind:style="{ backgroundColor: item.color }">
+            <div class="cell small-12 medium-6">
+                <h1>{{ title }}</h1>
+                <p>{{ tagline }}</p>
+
+                <form action="https://formspree.io/info@casloeffen.nl" method="POST">
                     <div class="grid-x">
-                        <div class="cell small-12 medium-6">
-                            <p class="contribution">{{ item.contribution }}</p>
+                        <div class="cell medium-6">
+                            <label>Name
+                                <input type="text" name="name" placeholder="Your name">
+                            </label>
                         </div>
-                        <div class="cell small-12 medium-6">
-                            <p class="contribution">{{ item.techniques }}</p>
+                        <div class="cell medium-6">
+                            <label>Email
+                                <input type="email" name="_replyto" placeholder="Your email">
+                            </label>
                         </div>
                     </div>
                     <div class="grid-x">
-                        <div class="cell small-12 medium-8">
-                            <h2>{{ item.title }}</h2>
-                            <p>{{ item.description }}</p>
-                            <a :href="item.link.url" class="button button-secondary" target="_blank">Link to project</a>
+                        <div class="cell medium-12">
+                            <label>Message
+                                <textarea name="message" placeholder="Your message"></textarea>
+                            </label>
                         </div>
                     </div>
-                </div>
+                    <div class="grid-x">
+                        <div class="cell medium-12">
+                            <button type="submit" class="button button-primary">Stuur</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-
 export default {
-    name: 'portfolio-item',
+    name: 'Contact',
     data () {
         return {
-            item: null,
-            portfolio: [],
-
             story: {
                 content: {
                     body: []
                 }
             },
             title: '',
-            description: ''
+            tagline: ''
         }
     },
     created () {
@@ -59,16 +66,9 @@ export default {
         })
     },
     methods: {
-        getPortfolioItem: function () {
-            for (var i = 0; i < this.portfolio.length; i++) {
-                if (this.portfolio[i].slug === this.$route.params.item) {
-                    this.item = this.portfolio[i]
-                }
-            }
-        },
         getStory (version) {
             window.storyblok.get({
-                slug: 'portfolio',
+                slug: 'contact',
                 version: version
             }, (data) => {
                 this.story = {
@@ -78,8 +78,8 @@ export default {
                 }
                 this.$nextTick(() => {
                     this.story = data.story
-                    this.portfolio = data.story.content.body
-                    this.getPortfolioItem()
+                    this.title = data.story.content.body[0].title
+                    this.tagline = data.story.content.body[0].tagline
                 })
             })
         }

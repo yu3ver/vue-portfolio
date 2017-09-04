@@ -1,34 +1,36 @@
 <template>
     <div id="app">
-        <div class="container">
-            <div class="row">
-                <div class="two columns">
-                    <a href="#" class="pure-menu-heading pure-menu-link">BRAND</a>
-                </div>
-                <div class="two columns">
-                    <router-link :to="{ path: '/' }">Home</router-link>
-                </div>
-                <div class="two columns">
-                    <router-link :to="{ path: '/about' }">About</router-link>
-                </div>
-                <div class="two columns">
-                    <router-link :to="{ path: '/portfolio' }">Portfolio</router-link>
-                </div>
-            </div>
-        </div>
 
-        <div class="container">
+        <main-menu></main-menu>
+        <transition name="fade">
             <router-view></router-view>
-        </div>
+        </transition>
+
+        <vue-particles
+            color="#000000"
+            :particleOpacity="0.3"
+            :particlesNumber="10"
+            shapeType="triangle"
+            :particleSize="8"
+            linesColor="#000000"
+            :linesWidth="1"
+            :lineLinked="true"
+            :lineOpacity="0.2"
+            :linesDistance="150"
+            :moveSpeed="1"
+            :hoverEffect="false"
+            :clickEffect="false">
+      </vue-particles>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'app'
+    name: 'App',
+    data () {
+        return {
+            msg: 'Nothing here.'
+        }
+    }
 }
 </script>
-
-<style>
-
-</style>

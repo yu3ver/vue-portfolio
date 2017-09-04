@@ -4,9 +4,20 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import StoryblokVue from 'storyblok-vue'
+import VueParticles from 'vue-particles'
+
+import MainMenu from '@/components/main-menu'
+
+Vue.use(VueParticles)
+Vue.use(StoryblokVue)
+
+Vue.component('main-menu', MainMenu)
+
 Vue.config.productionTip = false
 
-require('../node_modules/skeleton-css/css/skeleton.css')
+require('./foundation.min.css')
+require('./style.css')
 
 /* eslint-disable no-new */
 new Vue({

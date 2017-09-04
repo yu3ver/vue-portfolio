@@ -1,0 +1,185 @@
+body {
+    font-size: 18px;
+    color: $primary-text-light;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+}
+
+h1 { font-size: 36px; }
+h2 { font-size: 30px; }
+
+.top-bar, .top-bar ul {
+    background-color: transparent;
+    color: white;
+}
+
+.top-bar {
+    margin-bottom: 20px;
+}
+
+.menu {
+    padding: 10px;
+    margin: 0;
+    font-size: 18px;
+    font-family: 'Source Code Pro', monospace;
+    a, a:hover, a:focus {
+        color: $primary-text-light;
+        letter-spacing: 0;
+
+    }
+
+    .menu-text, .menu-text a {
+        font-weight: normal;
+        padding: 0;
+    }
+}
+
+.home-text {
+    z-index: -1;
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h1.title {
+        font-size: 54px;
+        text-transform: uppercase;
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    h2.tagline {
+        line-height: 1;
+        margin: 0;
+        font-size: 36px;
+        text-transform: lowercase;
+    }
+
+    hr {
+        border-bottom-color: $dividers-light;
+        width: 250px;
+    }
+}
+
+
+
+#particles-js {
+    background: #8e9eab;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    background: #8e9eab;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    position: fixed;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    left: 0; top: 0;
+    overflow: hidden;
+
+    canvas {
+        // display: none !important;
+    }
+}
+
+.fade-enter-active {
+  transition: all 500ms ease-in-out;
+}
+.fade-leave-active {
+  transition: all 0s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+a .item {
+    transition: all 300ms ease-in-out 0s;
+
+    img {
+       transition: all 300ms ease-in-out 0s;
+       opacity: 0.8;
+    }
+
+    &:hover {
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        img {
+            opacity: 1;
+        }
+    }
+}
+
+.item {
+    margin-bottom: 50px;
+    background-color: $background-800;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border-radius: 4px;
+    img {
+        max-height: 300px;
+        width: 100%;
+        object-fit: cover;
+        object-position: center center;
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+    }
+
+   .item-text {
+       padding: 25px;
+       color: $primary-text-dark;
+       border-bottom-right-radius: 4px;
+       border-bottom-left-radius: 4px;
+
+        h2 {
+            line-height: 1.2em;
+        }
+
+       .contribution {
+           color: $secondary-text-dark;
+           font-size: 14px;
+           text-transform: uppercase;
+           font-family: "Source Code Pro";
+           margin-bottom: 0;
+       }
+   }
+}
+
+.button {
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 200ms ease-in-out 0s;
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    &:hover {
+        box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+    }
+}
+
+.button-primary {
+    background-color: $background-50;
+    color: $primary-text-light;
+    border: 1px solid $disabled-text-light;
+    &:hover, &:focus, &:hover:focus {
+        background-color: $background-0;
+        color: $primary-text-light;
+        border: 1px solid $primary-text-light;
+    }
+}
+
+.button-secondary {
+    background-color: $background-50;
+    color: $primary-text-light;
+    &:hover, &:focus, &:hover:focus {
+        background-color: $background-0;
+        color: $primary-text-light;
+    }
+}
