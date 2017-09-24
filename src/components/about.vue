@@ -3,11 +3,23 @@
         <div class="grid-x">
             <div class="cell small-12 item">
                 <img :src="image" alt="">
-                <div class="item-text">
+                <div class="item-text about-text">
                     <div class="grid-x">
                         <div class="cell small-12 medium-8">
                             <h1>{{ title }}</h1>
-                            <p v-html="description"></p>
+                            <div v-html="description"></div>
+
+                            <div class="grid-x">
+                                <div class="cell small-4 medium-3 large-2">
+                                    <a class="button button-secondary" href="https://github.com/cloeffen" target="_blank">Github</a>
+                                </div>
+                                <!--<div class="cell small-4 medium-3 large-2">-->
+                                    <!--<a class="button button-secondary" href="https://behance.net/casloeffen" target="_blank">Behance</a>-->
+                                <!--</div>-->
+                                <div class="cell small-4 medium-3 large-2">
+                                    <a class="button button-secondary" href="mailto:info@casloeffen.nl" target="_blank">E-mail</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -35,7 +47,7 @@ export default {
     },
     created () {
         window.storyblok.init({
-            accessToken: 'm1KihoDPUQ5Q0clW19Xo5Qtt'
+            accessToken: '1kPxrkTRAU5YqwuzgFpZZAtt'
         })
         window.storyblok.on('change', () => {
             this.getStory('draft')

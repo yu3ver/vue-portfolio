@@ -52,7 +52,7 @@ export default {
     },
     created () {
         window.storyblok.init({
-            accessToken: 'm1KihoDPUQ5Q0clW19Xo5Qtt'
+            accessToken: '1kPxrkTRAU5YqwuzgFpZZAtt'
         })
         window.storyblok.on('change', () => {
             this.getStory('draft')

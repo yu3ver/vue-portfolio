@@ -14,14 +14,14 @@
                         <router-link :to="{ path: '/' }">Home</router-link>
                     </li>
                     <li>
-                        <router-link :to="{ path: '/about' }">About</router-link>
+                        <router-link :to="{ path: '/about' }">Over</router-link>
                     </li>
                     <li>
                         <router-link :to="{ path: '/portfolio' }">Portfolio</router-link>
                     </li>
-                    <li>
+                    <!-- <li>
                         <router-link :to="{ path: '/contact' }">Contact</router-link>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>

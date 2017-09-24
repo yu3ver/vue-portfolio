@@ -16,7 +16,7 @@
                         <div class="cell small-12 medium-8">
                             <h2>{{ item.title }}</h2>
                             <p>{{ item.description }}</p>
-                            <a :href="item.link.url" class="button button-secondary" target="_blank">Link to project</a>
+                            <a :href="item.link.url" class="button button-secondary" target="_blank">Bekijk project</a>
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ export default {
     },
     created () {
         window.storyblok.init({
-            accessToken: 'm1KihoDPUQ5Q0clW19Xo5Qtt'
+            accessToken: '1kPxrkTRAU5YqwuzgFpZZAtt'
         })
         window.storyblok.on('change', () => {
             this.getStory('draft')
